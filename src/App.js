@@ -5,44 +5,28 @@ import Tools from "./pages/Tools";
 import Counter from "./pages/Counter";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
+import  Register from "./pages/Register";
 import Courses from "./pages/Courses";
 import { GoogleLogin } from "@react-oauth/google";
-import { createContext , useState} from "react"
-
-// import GoogleLogin from "./pages/googleLogin";
-import { yogaCourses } from './components/data/data';
-
-
-const UserContext = createContext();
-
-function Component2() {
-	const [ user] = useState("Jesse Hall");
-	return (
-	  <>
-		<h1>Component 2</h1>
-		<h1>{`Hello ${user}!`}</h1>
-	  </>
-	);
-}
-
+// import { yogaCourses } from './components/data/data';
 
 
 function App() {
 	return (
-        <UserContext.Provider value={{yogaCourses : yogaCourses}}>
-				<Nav />
+        // <UserContext.Provider value={{yogaCourses : yogaCourses}}>
 				<div className="App">
+				<Nav />
 					<Routes>
-						<Route exact path="/home" element={<Home />} />
+						<Route exact path="/" element={<Home />} />
 						<Route exact path="/tools" element={<Tools />} />
 						<Route exact path="/counter" element={<Counter />} />
 						<Route exact path="/login" element={<Login />} />
+						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/userlogin" element={<GoogleLogin />} />
-						<Route exact path="/component" element={<Component2 />} />
 						<Route exact path="/courses" element={<Courses />} />
 					</Routes>
 				</div>
-				</UserContext.Provider>
+				// </UserContext.Provider>
 	);
 }
 

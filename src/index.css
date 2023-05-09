@@ -19,30 +19,38 @@ body {
   /* word-break: break-all; */
 }
 
-/* LOGIN */
+/*------------------------------ LOGIN ------------------------------*/
 .login-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   padding: 50px;
   gap: 20px;
   border:1px solid black;
-  margin: 0 20%;
   border-radius: 10px;
+  margin: 30px 90px;
+
 }
 .login-container img {
-  width: min(500px , 100%);
+  width: 100%;
   border-radius: 10px;
 }
 
 .login-form {
   border: 1px solid black;
   border-radius: 10px;
-  padding: 30px;
+  padding: 20px;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
+}
+.login-form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .login-form h1 {
   align-self: center;
@@ -59,6 +67,9 @@ body {
   font-weight: bold;
 
 }
+.login-container .left-div {
+  width: min(500px , 100%);
+}
 
 .login-container .submit-btn:hover {
   color: #151b1a;
@@ -69,10 +80,66 @@ body {
   color: red;
   font-size: 12px;
 }
-.email  p {
+.email p {
   color: red;
-  font-size: 12px;
+  font-size: 10px;
 }
+
+/*------------------------------ REGISTER ------------------------------*/
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 30px 90px;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.register-container .left-div {
+  width: min(500px , 100%);
+}
+.register-container img {
+  width: 100%;
+  align-self: center;
+  border-radius: 10px;
+}
+.register-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  gap: 10px;
+}
+.register-form h1 {
+  align-self: center;
+}
+.register-form > div  {
+  display: flex;
+  flex-direction: column;
+}
+.register-form > div span  {
+  color: red;
+  font-size: 10px;
+}
+.register-form button {
+  padding: 10px 15px;
+  border-radius: 70px;
+  border: none;
+  color: var(--primeryColorLight);
+  font-weight: bold;
+  align-self: center;
+}
+.register-form button:hover {
+  color: #151b1a;
+  background: var(--Button-hoverColor);
+  transition: step-start 33s;
+}
+
+
 header {
   display: flex;
   justify-content: space-between;

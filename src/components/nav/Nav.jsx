@@ -15,23 +15,23 @@ function Nav() {
 			<h3>LOGO</h3>
 			<nav id="navigarion" ref={navRef}>
 					<span>
-						<Link className="nav-link" to="/home">
+						<Link className="nav-link" to="/">
 							Home
 						</Link>
 					</span>
-					<span>
+					{/* <span>
 						<Link className="nav-link" to="/tools">
 							Tools
 						</Link>
-					</span>
-					<span>
-						<Link className="nav-link" to="/counter">
-							Counter
-						</Link>
-					</span>
+					</span> */}
 					<span>
 						<Link className="nav-link" to="/login">
 							Login
+						</Link>
+					</span>
+					<span>
+						<Link className="nav-link" to="/register">
+							Register
 						</Link>
 					</span>
 					<span>
@@ -39,14 +39,6 @@ function Nav() {
 							login with Google
 						</Link>
 					</span>
-					<span>
-						<Link className="nav-link" to="/logout">
-							logout
-						</Link>
-					</span>	
-						<Link className="nav-link" to="/component">
-							Component2
-						</Link>
 					<span>
 						<Link className="nav-link" to="/courses">
 							Courses
