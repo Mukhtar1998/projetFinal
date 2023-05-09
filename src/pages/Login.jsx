@@ -1,64 +1,80 @@
-import React from "react";
-import { FcGoogle } from 'react-icons/fc';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { GoogleLogin } from '@react-oauth/google';
-import jwt_decode from "jwt-decode";
+import React, { useState } from "react";
 
 
-const clientId = "635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com"
-function Login() {
+const Login = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [emailError, setEmailError] = useState("");
+	const [passwordError, setPasswordError] = useState("");
 
-	const onSuccess = (res) => {
-		console.log(`LOGIN SUCCESS! Current user:`, res.profileObj);
+	const handleEmailChange = (event) => {
+		const emailValue = event.target.value;
+		setEmail(emailValue);
+		if (!emailValue.includes("@")) {
+			setEmailError("Please enter a valid email address");
+		} else {
+			setEmailError("");
+		}
 	};
 
-	const onFailure = (res) => {
-		console.log(`LOGIN FAILED! res: ! `, res);
-	}
-	const responseGoogle = (response) => {
-	   const userObject = jwt_decode(response.credential);
-		   localStorage.setItem('user', JSON.stringify(userObject));
-		const { name, sub, picture } = userObject;
-		const doc = {
-			_id: sub,
-			_type: "user",
-			userName: name,
-			image: picture,
-		};
+	const handlePasswordChange = (event) => {
+		const passwordValue = event.target.value;
+		setPassword(passwordValue);
+		if (passwordValue.length < 8) {
+			setPasswordError("Password must be at least 8 characters long");
+		} else {
+			setPasswordError("");
+		}
 	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		if (emailError === "" && passwordError === "") {
+			console.log("Submit form with email:", email, "and password:", password);
+		} else {
+			console.log("Cannot submit form. Please correct errors.");
+		}
+	};
+
 	return (
-		<div className="login-parents" >
-			{" "}
-			<div className="login-first-child">
-			<h3>login</h3>
-				{" "}
-				<GoogleOAuthProvider
-					clientId={`635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com`}
-				>
-					{" "}
-					<GoogleLogin
-						render={(renderProps) => (
-							<button
-								type="button"
-								className="primery-btn"
-								buttonText="Login"
-								clientId={{clientId}}
-								// onClick={renderProps.onClick}
-								// disabled={renderProps.disabled}
-							>
-								{" "}
-								<FcGoogle className="" /> Sign in with google{" "}
-							</button>
-						)}
-						onSuccess={responseGoogle}
-						onFailure={responseGoogle}
-						cookiePolicy="single_host_origin"
-						isSinged={true}
-					/>{" "}
-				</GoogleOAuthProvider>{" "}
-			</div>{" "}
+		<div className="login-container">
+			<div className="right-div">
+				<form className="login-form" onSubmit={handleSubmit}>
+					<h1>login</h1>
+					<div className="email">
+						<label htmlFor="email">Email:</label>
+						<input
+							type="email"
+							id="email"
+							value={email}
+							onChange={handleEmailChange}
+						/>
+            <p>
+						{emailError && <span>{emailError}</span>}
+            </p>
+					</div>
+					<div className="password">
+						<label htmlFor="password">Password:</label>
+						<input
+							type="password"
+							id="password"
+							value={password}
+							onChange={handlePasswordChange}
+						/>
+						<p>
+            {passwordError && <span>{passwordError}</span>}
+            </p>
+					</div>
+					<button className="submit-btn" type="submit">
+						Submit
+					</button>
+				</form>
+			</div>
+      <div className="left-div">
+				<img src="https://images.thequint.com/thequint%2F2022-07%2Fe2305be9-e9da-491e-9955-cebaba47b7f2%2Fwarrior_pose_from_yoga_picture_id498058082.jpg" alt="login-img"></img>
+			</div>
 		</div>
 	);
-}
+};
 
 export default Login;

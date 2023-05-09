@@ -19,6 +19,60 @@ body {
   /* word-break: break-all; */
 }
 
+/* LOGIN */
+.login-container {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  gap: 20px;
+  border:1px solid black;
+  margin: 0 20%;
+  border-radius: 10px;
+}
+.login-container img {
+  width: min(500px , 100%);
+  border-radius: 10px;
+}
+
+.login-form {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.login-form h1 {
+  align-self: center;
+}
+.submit-btn {
+  align-self: center;
+}
+
+.login-container .submit-btn {
+  padding: 10px 15px;
+  border-radius: 70px;
+  border: none;
+  color: var(--primeryColorLight);
+  font-weight: bold;
+
+}
+
+.login-container .submit-btn:hover {
+  color: #151b1a;
+  background: var(--Button-hoverColor);
+  transition: step-start 33s;
+}
+.password  p {
+  color: red;
+  font-size: 12px;
+}
+.email  p {
+  color: red;
+  font-size: 12px;
+}
 header {
   display: flex;
   justify-content: space-between;

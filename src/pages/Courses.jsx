@@ -1,66 +1,29 @@
-import React from "react";
-import { courses, yogaCourses } from './../components/data/data';
-import { Link } from "react-router-dom";
+import React  from "react";
+import { yogaCourses } from "../components/data/data";
+
+export const yogaCoursesContext = React.createContext(yogaCourses);
 
 const Courses = () => {
-     const yogaCourses = [
-        {
-            id: 0,
-            title: "Introduction",
-            time: 24/12/2023,
-            course: "https://www.youtube.com/watch?v=g13nVd7OLYs",
-            price: 20
-        },
-        {
-            id: 1,
-            title: "Level 1",
-            time: 24/12/2023,
-            course: "https://www.youtube.com/watch?v=g13nVd7OLYs",
-            price: 20
-        },
-        {
-            id: 2,
-            title: "Level 2",
-            time: 24/12/2023,
-            course: "https://www.youtube.com/watch?v=g13nVd7OLYs",
-            price: 20
-        },
-        {
-            id: 3,
-            title: "Level 3",
-            time: String,
-            course: "https://www.youtube.com/watch?v=g13nVd7OLYs",
-            price: 20
-        },
-        {
-            id: 4,
-            title: "Level 4",
-            time: 24/12/2023,
-            course: "https://www.youtube.com/watch?v=g13nVd7OLYs",
-            price: 20
-        },
-        {
-            id: 5,
-            title: "Level 5",
-            time: 24/12/2023,
-            course: "https://www.youtube.com/watch?v=g13nVd7OLYs",
-            price: 20
-        }
-    ]
+  const { courses} = React.useState(yogaCourses);
 
+  function showCourse() {
+    console.log(`courses`,  yogaCourses.map(item =>  item.courses ));
+  }
     return (
-        <>
-        <h1>Yoga Courses</h1>
+      <div>
+          <h1>Yoga Courses</h1>
 
-        {/* {yogaCourses.map(course => {
-            <div key={course.id}>
-                <li>{course.title}</li>
-                <video>{course.course}</video>
-                <li>{course.time}</li>
+            {/* {yogaCourses.map((courses) => (
+                <li key={courses.key}>
+                Descriiption :{courses.description}
+                Max-Student :{courses.maxStudent}
+                Price :{courses.price}
+                Time and Date{courses.courses}
+                </li>
+            ))} */}
+                <button onClick={showCourse()}>show courses</button>
+      </div>
 
-            </div>
-        })}        */}
-        </>
     )
 }
 

@@ -2,25 +2,8 @@ import React from "react";
 import { useRef } from "react";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
-import { googleLogout } from "@react-oauth/google";
-import { gapi } from "gapi-script";
-import { useEffect } from "react";
-import Classes from './../classes/Classes';
-
-const clientId =
-"635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com";
 
 function Nav() {
-	// useEffect(() => {
-		//     function start() {
-			//         gapi.clientId.init({
-				//             clientId: clientId,
-				//             scope: ""
-				//         })
-				//     };
-				//     gapi.load('client:auth2', start)
-				// })
 	const navRef = useRef();
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsiv-nav");
@@ -31,36 +14,44 @@ function Nav() {
 		<header className="nav" >
 			<h3>LOGO</h3>
 			<nav id="navigarion" ref={navRef}>
-					<a>
-						<Link className="nav-link" to="/">
+					<span>
+						<Link className="nav-link" to="/home">
 							Home
 						</Link>
-					</a>
-					<a>
+					</span>
+					<span>
 						<Link className="nav-link" to="/tools">
 							Tools
 						</Link>
-					</a>
-					<a>
+					</span>
+					<span>
 						<Link className="nav-link" to="/counter">
 							Counter
 						</Link>
-					</a>
-					<a>
+					</span>
+					<span>
 						<Link className="nav-link" to="/login">
 							Login
 						</Link>
-					</a>
-					<a>
+					</span>
+					<span>
+						<Link className="nav-link" to="/userlogin">
+							login with Google
+						</Link>
+					</span>
+					<span>
 						<Link className="nav-link" to="/logout">
 							logout
 						</Link>
-					</a>
-					<a>
+					</span>	
+						<Link className="nav-link" to="/component">
+							Component2
+						</Link>
+					<span>
 						<Link className="nav-link" to="/courses">
 							Courses
 						</Link>
-					</a>
+					</span>
 
 					<button className="nav-btn nav-close-btn">
 					<FaTimes  onClick={showNavbar}/>
