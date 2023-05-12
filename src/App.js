@@ -6,25 +6,26 @@ import Counter from "./pages/Counter";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import  Register from "./pages/Register";
-import Courses from "./pages/Courses";
+import {  GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 // import { yogaCourses } from './components/data/data';
-
 
 function App() {
 	return (
         // <UserContext.Provider value={{yogaCourses : yogaCourses}}>
 				<div className="App">
+		<GoogleOAuthProvider>
 				<Nav />
 					<Routes>
 						<Route exact path="/" element={<Home />} />
 						<Route exact path="/tools" element={<Tools />} />
 						<Route exact path="/counter" element={<Counter />} />
-						<Route exact path="/login" element={<Login />} />
 						<Route exact path="/register" element={<Register />} />
-						<Route exact path="/userlogin" element={<GoogleLogin />} />
-						<Route exact path="/courses" element={<Courses />} />
+						<Route exact path="/login" element={<Login />} />
+						<Route exact path="/g-login" element={<GoogleLogin />} />
+						{/* <Route exact path="/courses" element={<Courses />} /> */}
 					</Routes>
+		</GoogleOAuthProvider>
 				</div>
 				// </UserContext.Provider>
 	);

@@ -31,19 +31,12 @@ const Login = () => {
     if (emailError === "" && passwordError === "") {
       console.log("Submit form with email:", email, "and password:", password);
       var details = { email: email, password: password };
-      var formBody = [];
-      for (var property in details) {
-        var encodedKey = encodeURIComponent(property);
-        var encodedValue = encodeURIComponent(details[property]);
-        formBody.push(encodedKey + "=" + encodedValue);
-      }
-      formBody = formBody.join("&");
       fetch("http://localhost:4002/api/users/login", {
         method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
         },
-        body: formBody,
+        body: JSON.stringify(details),
       }).then( value => console.log("value" , value.json().then(res => console.log(res))));
     } else {
       console.log("Cannot submit form. Please correct errors.");

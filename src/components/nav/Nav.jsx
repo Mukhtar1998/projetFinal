@@ -19,23 +19,18 @@ function Nav() {
 							Home
 						</Link>
 					</span>
-					{/* <span>
-						<Link className="nav-link" to="/tools">
-							Tools
-						</Link>
-					</span> */}
-					<span>
-						<Link className="nav-link" to="/login">
-							Login
-						</Link>
-					</span>
 					<span>
 						<Link className="nav-link" to="/register">
 							Register
 						</Link>
 					</span>
 					<span>
-						<Link className="nav-link" to="/userlogin">
+						<Link className="nav-link" to="/login">
+							Login
+						</Link>
+					</span>
+					<span>
+						<Link className="nav-link" to="/g-login">
 							login with Google
 						</Link>
 					</span>
