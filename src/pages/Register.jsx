@@ -16,7 +16,7 @@ const Register = () => {
     if (!username) {
       console.log(errors.username = "Username is required");
     }
-    if (!password) {
+    if (!password && password.length < 6) {
       errors.password = "Password is required";
     }
     if (password !== confirmPassword) {
@@ -70,7 +70,7 @@ const Register = () => {
         </div>
 
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Create Password:</label>
           <input
             type="password"
             id="password"
@@ -102,12 +102,13 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
-      <div className="left-div">
+      {/* <div className="left-div">
         <img
           src="https://images.thequint.com/thequint%2F2022-07%2Fe2305be9-e9da-491e-9955-cebaba47b7f2%2Fwarrior_pose_from_yoga_picture_id498058082.jpg"
           alt="login-img"
         ></img>
-      </div>
+      </div> */}
+   
     </div>
   );
 };

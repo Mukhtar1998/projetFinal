@@ -1,5 +1,5 @@
 import React from 'react'
-function About(props){
+function About(){
     return(
         <div className="about">
             <div className="abouttext">
