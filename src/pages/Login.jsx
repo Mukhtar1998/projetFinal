@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -19,7 +21,7 @@ const Login = () => {
   const handlePasswordChange = (event) => {
     const passwordValue = event.target.value;
     setPassword(passwordValue);
-    if (passwordValue.length < 6) {
+    if (passwordValue.length < 8) {
       setPasswordError("Password must be at least 6 characters long");
     } else {
       setPasswordError("");
@@ -34,10 +36,15 @@ const Login = () => {
       fetch("http://localhost:4002/api/users/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json; charset=utf-8"
+          "Content-Type": "application/json; charset=utf-8",
         },
         body: JSON.stringify(details),
-      }).then( value => console.log("value" , value.json().then(res => console.log(res))));
+      }).then((value) =>
+        console.log(
+          "value",
+          value.json().then((res) =>  console.log(res))
+        )
+      );
     } else {
       console.log("Cannot submit form. Please correct errors.");
     }
@@ -69,16 +76,23 @@ const Login = () => {
             <p>{passwordError && <span>{passwordError}</span>}</p>
           </div>
           <button className="submit-btn" type="submit">
-            Submit
+            Login
           </button>
+          <p>OR</p>
+          <div className="g-login" style={{backgroundColor:"lightgray", padding:"10px", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", gap:"5px" , borderRadius:"5px"}}>
+            <FcGoogle/>
+          <Link style={{color:"black" ,TextDecoration:"none"}} to="/g-login">
+            <span style={{fontSize:"bold", }} >Login with google</span>
+          </Link>
+          </div>
         </form>
       </div>
-      <div className="left-div">
+      {/* <div className="left-div">
         <img
           src="https://images.thequint.com/thequint%2F2022-07%2Fe2305be9-e9da-491e-9955-cebaba47b7f2%2Fwarrior_pose_from_yoga_picture_id498058082.jpg"
           alt="login-img"
         ></img>
-      </div>
+      </div> */}
     </div>
   );
 };

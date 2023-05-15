@@ -22,13 +22,27 @@ const GoogleLogin = () => {
       image: picture,
     };
   };
+  function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+  }
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: "635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" }  // customization attributes
+    );
+    google.accounts.id.prompt(); // also display the One Tap dialog
+  }
   return (  
     <div className="login-parents">
       {" "}
       <div className="login-first-child">
         <h3>login with google</h3>{" "}
         <GoogleOAuthProvider
-          clientId={`635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com`}
+          clientId="635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com"
         >
           {" "}
           <GoogleLogin

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Intro() {
     return(
@@ -8,7 +9,9 @@ function Intro() {
             <h1 className='introh1'>Divi Yoga Studio <br /><strong>Balance, Mind & <br /> Body</strong></h1>
             <p className='introp'>Nunc consequat justo eget enim finibus porta. Suspendisse orci nunc, rutrum quis nunc sed.</p>
            <div className="intobtn">
+           <Link to="/register">
            <input className='introb' type="button" value="GET STARTED" />
+           </Link>
            </div>
            </div>
            <img className='introimage' src="./yoga1.png" alt="yoga1"/>

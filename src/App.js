@@ -8,58 +8,29 @@ import Login from "./pages/Login";
 import  Register from "./pages/Register";
 import {  GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
-// import { yogaCourses } from './components/data/data';
-
+import { courseContext } from "./context/coursesContext";
+import { getCourses } from "./hooks/coursesHooks";
+import YogaCourses from "./pages/YogaCourses";
 function App() {
-	return (
-        // <UserContext.Provider value={{yogaCourses : yogaCourses}}>
-				<div className="App">
-		<GoogleOAuthProvider>
-				<Nav />
-					<Routes>
-						<Route exact path="/" element={<Home />} />
-						<Route exact path="/tools" element={<Tools />} />
-						<Route exact path="/counter" element={<Counter />} />
-						<Route exact path="/register" element={<Register />} />
-						<Route exact path="/login" element={<Login />} />
-						<Route exact path="/g-login" element={<GoogleLogin />} />
-						{/* <Route exact path="/courses" element={<Courses />} /> */}
-					</Routes>
-		</GoogleOAuthProvider>
-				</div>
-				// </UserContext.Provider>
-	);
+  return (
+    <courseContext.Provider value={{getCourses}}>
+      <div className="App">
+        <GoogleOAuthProvider clientId="635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com">
+          <Nav />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/tools" element={<Tools />} />
+            <Route exact path="/counter" element={<Counter />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/g-login" element={<GoogleLogin />} />
+            <Route exact path="/courses" element={<YogaCourses />} />
+          </Routes>
+        </GoogleOAuthProvider>
+      </div>
+     </courseContext.Provider>
+  );
 }
 
 export default App;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// front end development
-// how to create a react app
-// creating components
-// what a component is
-// what a prop is
-// how to create a prop
-// how to use a prop inside a component
-// how to use a prop to create dynamic content
-// how to structure your files
-// how to installl dependencies to your react project using NPM (NEEDS CONSOLIDATION)
-// how to create links which return components
-// how to use STATE <--

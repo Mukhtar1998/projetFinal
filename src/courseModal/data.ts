@@ -1,11 +1,12 @@
 export interface yogaCoursesType {
     id: number;
     title: string;
+    numberOfEpisode: string;
     description: string;
     maxStudent: number;
-    cost: number;
-    courses: {
+    cost: string;
+    courses: [{
             day: string;
-            time: string;
-        }
+            img : string;
+        }]
 }
