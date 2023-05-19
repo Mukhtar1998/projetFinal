@@ -21,7 +21,7 @@ const YogaCourses = () => {
           <img  style={{width:"200px"}} src={courses.image}/>
           <h3>{course.title} </h3>
           <br />
-          <div className="course-detials">
+          <div className="course-detils">
           <p>description : <span>{course.description} </span></p>
           <br />
           <p>Number of Episode : <span>{course.courses.length} </span></p>

@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +26,7 @@ const Login = () => {
     const passwordValue = event.target.value;
     setPassword(passwordValue);
     if (passwordValue.length < 8) {
+    if (passwordValue.length < 8) {
       setPasswordError("Password must be at least 6 characters long");
     } else {
       setPasswordError("");
@@ -37,8 +42,15 @@ const Login = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
+          "Content-Type": "application/json; charset=utf-8",
         },
         body: JSON.stringify(details),
+      }).then((value) =>
+        console.log(
+          "value",
+          value.json().then((res) =>  console.log(res))
+        )
+      );
       }).then((value) =>
         console.log(
           "value",
@@ -76,6 +88,7 @@ const Login = () => {
             <p>{passwordError && <span>{passwordError}</span>}</p>
           </div>
           <button className="submit-btn" type="submit">
+            Login
             Login
           </button>
           <p>Dont have an account ?</p>
