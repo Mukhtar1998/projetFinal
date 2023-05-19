@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCourses } from "../hooks/coursesHooks";
-import Classes from './../components/classes/Classes';
 
 const YogaCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -21,7 +20,7 @@ const YogaCourses = () => {
           <img  style={{width:"200px"}} src={courses.image}/>
           <h3>{course.title} </h3>
           <br />
-          <div className="course-detils">
+          <div className="course-detials">
           <p>description : <span>{course.description} </span></p>
           <br />
           <p>Number of Episode : <span>{course.courses.length} </span></p>

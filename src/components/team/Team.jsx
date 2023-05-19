@@ -3,7 +3,7 @@ import Item3 from "./Item3";
 
 function Team() {
 	return (
-		<div className="team">
+		<div className="our-team">
 			<div className="text">
 				<p>EXPERT INTSRUCTORS</p>
 				<h1 className="classesh1">Meet Our Team</h1>
@@ -33,7 +33,7 @@ function Team() {
 				/>
 			</div>
 			<div className="team-btn-div">
-				<input className="team-btn" type="button" value="VIEW ALL" />
+				<input className="btn3" type="button" value="VIEW ALL" />
 			</div>
 		</div>
 	);

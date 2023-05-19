@@ -17,7 +17,6 @@ const Register = () => {
       console.log(errors.username = "Username is required");
     }
     if (!password && password.length < 6) {
-    if (!password && password.length < 6) {
       errors.password = "Password is required";
     }
     if (password !== confirmPassword) {
@@ -71,7 +70,6 @@ const Register = () => {
         </div>
 
         <div>
-          <label htmlFor="password">Create Password:</label>
           <label htmlFor="password">Create Password:</label>
           <input
             type="password"

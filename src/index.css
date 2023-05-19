@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
   font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.8rem, 2.5vw, 1rem); 
 }
 :root {
   --introBgColor : linear-gradient(72deg,#1bb3eb 0%,#25efcb 100%)!important;
@@ -87,6 +88,7 @@ body {
   color: #151b1a;
   background: var(--Button-hoverColor);
   transition: step-start 33s;
+  
 }
 .password  p {
   color: red;
@@ -145,18 +147,22 @@ body {
 }
 
 /* COURSES */
-.yoga-classes-container {
-  /* margin: 20px 50px ; */
+.yoga-classes-container  {
+  padding: 90px 30px;
+}
+.yoga-classes {
   background-color: var(--secoundaryColor);
-  padding: 20px 30px;
-
+  padding: 30px;
+  display:grid;
+	grid-template-columns: repeat(4, minmax(1fr));
+  grid-template-rows: auto;
+	grid-gap:20px;
 }
 .course-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 0px;
   border-radius: 10px;
   width: min(300px, 100%);
   padding: 20px 25px;   
@@ -199,11 +205,9 @@ body {
 } 
 
 .yoga-classes {
-  display: grid;
-  grid-template-columns: repeat(3, 25%);
-  align-items: center;
-  justify-content: center;
-  grid-gap: 20px;
+  display:grid;
+	grid-template-columns: repeat(4, minmax(10%, 1fr));
+	grid-gap:20px;
 }
 
 /* HEADER */
@@ -271,18 +275,16 @@ nav a :hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:80px ;
   background:  100%;
   padding: 90px 30px;
   background-image: linear-gradient(72deg,#1bb3eb 0%,#25efcb 100%)!important;
 }
-.introh1,
-.introp {
-  font-size: clamp( 100px, 80px 56px);
-}
+
 .introtext{
   display: flex;
   flex-direction:column;
-  gap: 20px;
+  gap: 10px;
   position: relative;
   /* border: 4px solid black; */
   z-index: 2;
@@ -389,7 +391,6 @@ nav a :hover {
 .item {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -496,23 +497,19 @@ text-align: center;
   justify-content: center;
 }
 
-.team-btn {
-  padding: 15px 20px;
-  border-radius: 70px;
-  border: none;
-  color: var(--primeryColorLight);
-  margin: 20px 0;
-  font-weight: bold; ;
-}
-.team-btn:hover {
-  background: var(--Button-hoverColor);
-  color: #000000;
-}
 .three-grid-team {
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-gap: 20px;
+  margin-top: 30px;
 
+}
+.our-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
 }
 .item3 {
   display: flex;
@@ -524,7 +521,7 @@ text-align: center;
   gap: 20px;
   padding: 30px;
 }
-.team-img {
+.our-team img {
   width: min(270px, 100%);
 }
 /* testimonials */
@@ -586,7 +583,6 @@ text-align: center;
 }
 /* partners */
 .partners {
-  padding: 30px 110px;
   text-align: center;
   background-color: #fff;
   display: flex;
@@ -628,17 +624,35 @@ text-align: center;
   font-weight: bold;
   margin-top: 20px;
   border: none;
+  border: 1px solid white;
 }
 .btn1 {
   color: #fff;
   background: transparent;
-  border: 2px solid white ;
+}
+.btn1:hover {
+  transition: 0.33s ease-in;
+  background-color: white;
+  color: #00d084;
 }
 .btn2:hover {
-  border: none;
-  background-color: white;
-  border: none;
+  transition: 0.33s ease-in-out;
+  background-color: transparent;
+  color: white;
+}
 
+.btn3 {
+  padding: 20px 30px;
+  border-radius: 70px;
+  color: #00d084;
+  font-weight: bold;
+  margin-top: 20px;
+  border: none;
+  border: 1px solid rgb(203, 198, 198);  
+}
+.btn3:hover {
+  transition: 0.33s ease-in-out;
+  background-color: transparent;
 }
 
 
@@ -844,12 +858,7 @@ nav a {
     height: 50%;
   }
   /* team */
-  .team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+
  
   /* testimonials */
   .testimonials {
@@ -899,6 +908,15 @@ nav a {
   a {
     word-break: break-all;
   }
+  /* TEAM */
+  .three-grid-team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+  }
+
   /* partners */
   .partners {
     display: flex;

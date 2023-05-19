@@ -9,7 +9,6 @@ function Nav() {
 		navRef.current.classList.toggle("responsiv-nav");
 		console.log(navRef.current.classList);
 	};
-
 	return (
 		<header className="nav ">
 			<h3>LOGO</h3>

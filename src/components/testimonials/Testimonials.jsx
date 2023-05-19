@@ -13,7 +13,7 @@ function Testimonials() {
            <Item4 blurb="“Nunc consequat justo eget enim finibus porta. Suspendisse orci nunc, rutrum quis nunc sed, feugiat hendrerit massa. In cursus ornare sollicitudin.”." heading="Isabella Edwards Compbell" cta="Studio Manager, Yoga Studio" bg="#fff"/>
         </div>
         <div className="testimonialsbtn">
-        <input className='classesbtn ' type="button" value="VIEW ALL" />
+        <input className='btn1' type="button" value="VIEW ALL" />
         </div>
         </div>
     )

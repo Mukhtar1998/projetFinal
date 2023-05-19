@@ -1,7 +1,7 @@
 import React from 'react'
 import Item5 from './Item5'
 
-function Blog(props) {
+function Blog() {
     return(
         <div className="blog">
         <div className="text">
@@ -14,7 +14,7 @@ function Blog(props) {
          <Item5 heading="The Sweet Life"p2="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquam justo et nibh venenatis aliquet. Morbi mollis mollis pellentesque. Aenean vitae erat velit."/>
          </div>
          <div className="blogbtn">
-         <input className='classesbtn' type="button" value="VIEW ALL" />
+         <input className='btn3' type="button" value="VIEW ALL" />
          </div>
         </div>
 

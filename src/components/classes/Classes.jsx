@@ -31,7 +31,7 @@ function Classes() {
 			</div>
 			<div className="btn">
 			<Link to="/courses">
-				<input className="classesbtn" type="button" value="VIEW ALL" />
+				<input className="btn3" type="button" value="VIEW ALL" />
 			</Link>
 			</div>
 		</div> 
