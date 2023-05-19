@@ -8,12 +8,12 @@ import Login from "./pages/Login";
 import  Register from "./pages/Register";
 import {  GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
-import { courseContext } from "./context/coursesContext";
-import { getCourses } from "./hooks/coursesHooks";
+// import { courseContext } from "./context/coursesContext";
+// import { getCourses } from "./hooks/coursesHooks";
 import YogaCourses from "./pages/YogaCourses";
 function App() {
   return (
-    <courseContext.Provider value={{getCourses}}>
+    // <courseContext.Provider value={{getCourses}}>
       <div className="App">
         <GoogleOAuthProvider clientId="635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com">
           <Nav />
@@ -28,7 +28,7 @@ function App() {
           </Routes>
         </GoogleOAuthProvider>
       </div>
-     </courseContext.Provider>
+    //  {/* </courseContext.Provider> */}
   );
 }
 

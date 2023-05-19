@@ -1,4 +1,4 @@
-import React from 'react';
-import { Courses } from './../data/data';
+// import React from 'react';
+// import { Courses } from './../data/data';
 
-export const courseContext = React.createContext(Courses);
+// export const courseContext = React.createContext(Courses);

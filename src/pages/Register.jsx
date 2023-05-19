@@ -47,7 +47,7 @@ const Register = () => {
   return (
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
-        <h1>Register Form</h1>
+        <h2>Create your Account</h2>
         <div>
           <label htmlFor="username">Username:</label>
           <input
@@ -102,12 +102,9 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
-      {/* <div className="left-div">
-        <img
-          src="https://images.thequint.com/thequint%2F2022-07%2Fe2305be9-e9da-491e-9955-cebaba47b7f2%2Fwarrior_pose_from_yoga_picture_id498058082.jpg"
-          alt="login-img"
-        ></img>
-      </div> */}
+      <div className="left-div ">
+      <img className='login-img' src="./yoga1.png" alt="yoga1"/>
+      </div>
    
     </div>
   );

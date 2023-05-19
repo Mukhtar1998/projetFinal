@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import App from './../../App';
 
 function Intro() {
     return(
@@ -15,8 +16,6 @@ function Intro() {
            </div>
            </div>
            <img className='introimage' src="./yoga1.png" alt="yoga1"/>
-
-         
         </div>
        </div>
     )

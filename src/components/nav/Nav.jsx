@@ -11,7 +11,7 @@ function Nav() {
 	};
 
 	return (
-		<header className="nav" >
+		<header className="nav ">
 			<h3>LOGO</h3>
 			<nav id="navigarion" ref={navRef}>
 					<span>

@@ -78,7 +78,7 @@ const Login = () => {
           <button className="submit-btn" type="submit">
             Login
           </button>
-          <p>OR</p>
+          <p>Dont have an account ?</p>
           <div className="g-login" style={{backgroundColor:"lightgray", padding:"10px", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", gap:"5px" , borderRadius:"5px"}}>
             <FcGoogle/>
           <Link style={{color:"black" ,TextDecoration:"none"}} to="/g-login">
@@ -87,12 +87,9 @@ const Login = () => {
           </div>
         </form>
       </div>
-      {/* <div className="left-div">
-        <img
-          src="https://images.thequint.com/thequint%2F2022-07%2Fe2305be9-e9da-491e-9955-cebaba47b7f2%2Fwarrior_pose_from_yoga_picture_id498058082.jpg"
-          alt="login-img"
-        ></img>
-      </div> */}
+      <div className="left-div">
+      <img className='login-img' src="./yoga1.png" alt="yoga1"/>
+      </div>
     </div>
   );
 };
