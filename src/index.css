@@ -147,6 +147,81 @@ body {
 }
 
 /* COURSES */
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content {
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.content .para {
+  line-height: 1.5;
+}
+
+.content .btn {
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover::before {
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+.card:hover .btn {
+  color: #212121;
+  background: #e8e8e8;
+}
+
+.content .btn:hover {
+  outline: 2px solid #e8e8e8;
+  background: transparent;
+  color: #e8e8e8;
+}
+
+.content .btn:active {
+  box-shadow: none;
+}
+
 .yoga-classes-container  {
   padding: 90px 30px;
 }
@@ -154,9 +229,8 @@ body {
   background-color: var(--secoundaryColor);
   padding: 30px;
   display:grid;
-	grid-template-columns: repeat(4, minmax(1fr));
-  grid-template-rows: auto;
-	grid-gap:20px;
+	grid-template-columns: repeat(auto-fit, minmax( 200px ,1fr));
+	grid-gap:1rem;
 }
 .course-card {
   display: flex;
@@ -173,7 +247,6 @@ body {
   z-index: 2;
 }
 
-
 .course-card button {
   padding: 10px 15px;
   border-radius: 70px;
@@ -182,13 +255,8 @@ body {
   font-weight: bold;
   margin-top: 10px;
   align-self: center;
- 
 }
-.course-detials{
-  background: lightgray;
-  padding: 10PX;
-  border-radius: 5px;
-}
+
 .course-card button:hover {
   color: #151b1a;
   background: var(--Button-hoverColor);
@@ -221,14 +289,8 @@ header {
 }
 .nav {
   top: 0;
-  position: fixed;
   z-index: 20;
   height: 60px;
-  /* background-color:var(--secoundaryColor) ; */
-  /* background: transparent; */
-  background-color:rgba(241, 244, 148, 0.5);
-  opacity: 0,5;
-  margin-bottom: 50px;
 }
 nav a {
   text-decoration: none;
@@ -701,6 +763,7 @@ box-sizing: border-box;
   transform: translateX(150vh);
   z-index: 10 ;
   position: fixed;
+  
 }
 
 header .responsiv-nav {

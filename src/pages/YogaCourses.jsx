@@ -14,10 +14,9 @@ const YogaCourses = () => {
   
   return (
    <div className="yoga-classes-container">
-     <div className="yoga-classes">
+     <div className="yoga-classes content">
       {courses.map((course) => (
-        <div className="course-card" key={course._id}>
-          <img  style={{width:"200px"}} src={courses.image}/>
+        <div className="course-card card" key={course._id}>
           <h3>{course.title} </h3>
           <br />
           <div className="course-detials">
@@ -34,7 +33,7 @@ const YogaCourses = () => {
           </p>
           </div>
           <Link to="/register">
-            <button>Get Started</button>
+            <button className="btn">Get Started</button>
           </Link>
         </div>
       ))}
