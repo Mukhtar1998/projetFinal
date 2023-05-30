@@ -7,8 +7,8 @@ function Nav() {
 	const navRef = useRef();
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsiv-nav");
-		console.log(navRef.current.classList);
 	};
+
 	return (
 		<header className="nav ">
 			<h3>LOGO</h3>
@@ -29,8 +29,8 @@ function Nav() {
 						</Link>
 					</span>
 					<span>
-						<Link className="nav-link" to="/g-login">
-							login with Google
+						<Link className="nav-link" to="/userprofile">
+							User Profile
 						</Link>
 					</span>
 					<span>

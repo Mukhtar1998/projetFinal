@@ -32,7 +32,7 @@ const YogaCourses = () => {
             Date And Time : <span>{course.courses[0].day} TO {course.courses[0].time}</span>
           </p>
           </div>
-          <Link to="/register">
+          <Link to="/register" style={{textDecoration:"none"}}>
             <button className="btn">Get Started</button>
           </Link>
         </div>

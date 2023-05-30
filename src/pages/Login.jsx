@@ -1,8 +1,11 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-const Login = () => {
+import {MdVisibility} from "react-icons/md"
+import {MdOutlineVisibilityOff} from "react-icons/md"
+import { userProfile } from "../hooks/userHooks";
 
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -28,10 +31,27 @@ const Login = () => {
     }
   };
 
+  // SHOW PASSWORD
+  function ShowHidePassword() {
+    const [isVisible, setVisible] = useState(false);
+
+    const toggle = () => {
+      setVisible(!isVisible);
+    };
+
+    return (
+      <div className="form-group"><p style={{color:"white"}}>Password</p>
+        <input type={!isVisible ? "password" : "text"} />
+        <span style={{color:"white"}} className="icon" onClick={toggle}>
+          {isVisible ? <MdVisibility /> : <MdOutlineVisibilityOff />}
+        </span>
+      </div>
+    );
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (emailError === "" && passwordError === "") {
-      console.log("Submit form with email:", email, "and password:", password);
       var details = { email: email, password: password };
       fetch("http://localhost:4002/api/users/login", {
         method: "POST",
@@ -39,12 +59,21 @@ const Login = () => {
           "Content-Type": "application/json; charset=utf-8",
         },
         body: JSON.stringify(details),
-      }).then((value) =>
-        console.log(
-          "value",
-          value.json().then((res) =>  console.log(res))
-        )
-      );
+      })
+        .then((value) => {
+          value.json().then((res) => {
+            localStorage.setItem("token", res.data);
+            userProfile().then((userProfile) => {
+              localStorage.setItem("user", JSON.stringify(userProfile) )
+            })
+          })
+          console.log('====================================');
+          console.log(userProfile);
+          console.log('====================================');
+        })
+        .catch((reason) => {
+          console.log("reason", reason.stringify());
+        });
     } else {
       console.log("Cannot submit form. Please correct errors.");
     }
@@ -56,7 +85,7 @@ const Login = () => {
         <form className="login-form" onSubmit={handleSubmit}>
           <h1>login</h1>
           <div className="email">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -66,29 +95,48 @@ const Login = () => {
             <p>{emailError && <span>{emailError}</span>}</p>
           </div>
           <div className="password">
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={handlePasswordChange}
             />
+            <ShowHidePassword style={{color:""}} type="password" id="password" value={password} onChange={handlePasswordChange} />
             <p>{passwordError && <span>{passwordError}</span>}</p>
           </div>
+       
+          {/* <Link to="/userprofile"> */}
           <button className="submit-btn" type="submit">
             Login
           </button>
+          {/* </Link> */}
           <p>OR</p>
-          <div className="g-login" style={{backgroundColor:"lightgray", padding:"10px", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", gap:"5px" , borderRadius:"5px"}}>
-            <FcGoogle/>
-          <Link style={{color:"black" ,TextDecoration:"none"}} to="/g-login">
-            <span style={{fontSize:"bold", }} >Login with google</span>
-          </Link>
+          <div
+            className="g-login"
+            style={{
+              backgroundColor: "lightgray",
+              padding: "10px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "5px",
+              borderRadius: "5px",
+            }}
+          >
+            <FcGoogle />
+            <Link
+              style={{ color: "black", TextDecoration: "none" }}
+              to="/g-login"
+            >
+              <span style={{ fontSize: "bold" }}>Login with google</span>
+            </Link>
           </div>
         </form>
       </div>
       <div className="left-div">
-                   <img className='introimage' src="./yoga1.png" alt="yoga1"/>
+        <img className="introimage" src="./yoga1.png" alt="yoga1" />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ function About(){
             <div className="abouttext">
             <p>ABOUT US</p>
             <h1 className='abouth1'>High Quality &<br />Professional Yoga Club</h1>
-            <p className='aboutp'>Perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. Ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
+            <p className='aboutp'>Yoga has been practiced for thousands of years and has gained immense popularity worldwide due to its transformative effects on the mind, body, and spirit. It provides a sanctuary from our fast-paced lives, allowing us to find inner peace, improve flexibility, build strength, and cultivate a deeper connection with ourselves..</p>
             <div className="profil">
             <img className='profilimg' src="./profil.png" alt="profil" />
             <p className='profiltext'>“Nunc consequat justo eget enim finibus porta. Suspendisse orci nunc, rutrum quis nunc sed, feugiat hendrerit massa. In cursus ornare sollicitudin.”</p>
