@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import {MdVisibility} from "react-icons/md"
-import {MdOutlineVisibilityOff} from "react-icons/md"
+import { MdVisibility } from "react-icons/md";
+import { MdOutlineVisibilityOff } from "react-icons/md";
 import { userProfile } from "../hooks/userHooks";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [isVisible, setVisible] = useState(false);
 
   const handleEmailChange = (event) => {
     const emailValue = event.target.value;
@@ -32,28 +34,17 @@ const Login = () => {
   };
 
   // SHOW PASSWORD
-  function ShowHidePassword() {
-    const [isVisible, setVisible] = useState(false);
-
-    const toggle = () => {
-      setVisible(!isVisible);
-    };
-
-    return (
-      <div className="form-group"><p style={{color:"white"}}>Password</p>
-        <input type={!isVisible ? "password" : "text"} />
-        <span style={{color:"white"}} className="icon" onClick={toggle}>
-          {isVisible ? <MdVisibility /> : <MdOutlineVisibilityOff />}
-        </span>
-      </div>
-    );
-  }
+  const toggle = () => {
+    setVisible(!isVisible);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("loged in successfully");
     if (emailError === "" && passwordError === "") {
       var details = { email: email, password: password };
-      fetch("http://localhost:4002/api/users/login", {
+      // console.log(details);
+       fetch("http://localhost:4002/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
@@ -64,12 +55,9 @@ const Login = () => {
           value.json().then((res) => {
             localStorage.setItem("token", res.data);
             userProfile().then((userProfile) => {
-              localStorage.setItem("user", JSON.stringify(userProfile) )
-            })
-          })
-          console.log('====================================');
-          console.log(userProfile);
-          console.log('====================================');
+              localStorage.setItem("user", JSON.stringify(userProfile));
+            });
+          });
         })
         .catch((reason) => {
           console.log("reason", reason.stringify());
@@ -78,7 +66,7 @@ const Login = () => {
       console.log("Cannot submit form. Please correct errors.");
     }
   };
-
+  
   return (
     <div className="login-container">
       <div className="right-div">
@@ -94,24 +82,20 @@ const Login = () => {
             />
             <p>{emailError && <span>{emailError}</span>}</p>
           </div>
-          <div className="password">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-            <ShowHidePassword style={{color:""}} type="password" id="password" value={password} onChange={handlePasswordChange} />
+            <input id="password" onChange={handlePasswordChange} type={!isVisible ? "password" : "text"} />
+            <span style={{ color: "" }} className="icon" onClick={toggle}>
+              {isVisible ? <MdVisibility /> : <MdOutlineVisibilityOff />}
+            </span>
             <p>{passwordError && <span>{passwordError}</span>}</p>
           </div>
-       
-          {/* <Link to="/userprofile"> */}
-          <button className="submit-btn" type="submit">
+          <button 
+              className="btn3" type="submit">
             Login
           </button>
           {/* </Link> */}
-          <p>OR</p>
+          
           <div
             className="g-login"
             style={{

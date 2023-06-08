@@ -1,0 +1,51 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+    position: fixed;
+    background: white;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    border-radius: 10px;
+}
+.modal-main p {
+    color: rgb(0, 0, 0);
+    padding: 5px;
+}
+
+.modal-main button:hover {
+    color: rgb(18, 151, 239);
+}
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}
+
+.purpleDay:not(.-selectedStart):not(.-selectedBetween):not(.-selectedEnd):not(.-selected) {
+    border: 2px solid rgba(156, 136, 255, 0.7) !important;
+  }
+  
+  .orangeDay:not(.-selectedStart):not(.-selectedBetween):not(.-selectedEnd):not(.-selected) {
+    border: 2px solid rgba(219, 145, 60, 0.7) !important;
+  }
+  
+  .yellowDay:not(.-selectedStart):not(.-selectedBetween):not(.-selectedEnd):not(.-selected) {
+    border: 2px solid rgba(228, 231, 36, 0.7) !important;
+  }
+  
+  .navyBlueDay:not(.-selectedStart):not(.-selectedBetween):not(.-selectedEnd):not(.-selected) {
+    border: 2px solid rgba(52, 73, 94, 0.7) !important;
+  }

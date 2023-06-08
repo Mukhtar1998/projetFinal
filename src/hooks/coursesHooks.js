@@ -21,6 +21,7 @@ export const userCourse = async () => {
   });
   if (res) {
     const responseJson = await res.json();
+    // console.log(res);
     if (responseJson) {
         return responseJson.course;
     } else

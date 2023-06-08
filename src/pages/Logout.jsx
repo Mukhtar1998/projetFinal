@@ -1,8 +1,8 @@
 import React from 'react';
 import { googleLogout } from "@react-oauth/google";
 
-const clientId = "635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com";
 function Logout() {
+    const clientId = "635254728250-00jrk2d1e3as3bqs1cjg2nejc8df0gg1.apps.googleusercontent.com";
     
     const onSuccess = (res) => {
 		console.log(`LOG OUT SUCCESSFULLY!`);

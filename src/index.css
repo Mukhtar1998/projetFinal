@@ -37,28 +37,23 @@ body {
   margin: 30px 90px;
   min-height: 100%;
   background: var(--introBgColor);
-
-
 }
 .right-div form {
-  background-color: rgb(0, 0, 0);
-
-  opacity: 0.3;
+  background-color: rgb(255, 255, 255);
   width: 100%;
-  /* opacity: 1; */
+}
+.right-div form h1 {
+  color: rgb(0, 0, 0);
 }
 .right-div form input {
   color: #000000;
-  background-color: white;
 }
 .right-div form label{
   padding: 4px;
-  color: white;
 }
 .right-div p {
-  font-size: large;
-  font-weight: 500;
-
+  font-size: 12px;
+  color: red;
 }
 .login-container img {
   width: min(350px , 100%);
@@ -73,8 +68,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
+
+
 
 .login-form input:invalid {
   animation: shake 300ms;
@@ -129,7 +125,7 @@ body {
   font-size: 12px;
 }
 .email p {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
   font-size: 10px;
 }
 
@@ -194,7 +190,28 @@ body {
   border-radius: 10px;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
 }
+.subscriber-card {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
 
+.subscriber-content {
+  background-color: #e6e6e642;
+  padding: 30px;
+  display:grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px ,1fr));
+	grid-gap:1rem;
+  color: #000000;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
 .content {
   color: #000000;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
@@ -219,6 +236,23 @@ body {
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
+}
+.subscriber-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--introBgColor);
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.subscriber-card:hover::before {
+  height: 100%;
+}
+.subscriber-card:hover {
+  box-shadow: none;
 }
 
 .card::before {
@@ -279,21 +313,27 @@ body {
 }
 
 .course-card p {
-  color: rgba(0, 0, 0, 0.4);
-  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500;
 }
  .course-card span {
-  color: rgba(0, 0, 0, 0.9);
-  font-weight: 400;
+  color: rgba(0, 0, 0, 0.521);
+  font-weight: 600;
 
 } 
 
-.yoga-classes {
-  display:grid;
-	grid-template-columns: repeat(auto-fit, minmax(4 , 1fr));
-	grid-gap:20px;
+/* SUBSCRIPTION MODAL */
+.modal {
+  position: absolute;
+  inset: 2em 50px 20px;
+  z-index: 200;
 }
-
+.Calendar {
+  position: fixed;
+  inset: 2em 50px 20px;
+  /* width: min(300px , 50%); */
+  width : 300px;
+}
 /* HEADER */
 header {
   display: flex;
