@@ -1,31 +1,15 @@
-import React, {useState} from "react";
-import { createSubscriber } from "../hooks/subscriberHooks";
+import React from "react";
 
 const UserProfilFront = () => {
-  const userIsConnected = localStorage.getItem("user");
-  console.log("user", localStorage.getItem("user"));
-  const [user] = useState();
-  const [course] = useState();
-  const [date] = useState();
-  const subscribe = () => {
-    if (userIsConnected) {
-      createSubscriber({ user: user, course: course, date: date }).then(
-        (res) => {
-          localStorage.setItem("subscriber", JSON.stringify(res));
-          console.log(res);
-        }
-      );
-    } else {
-      return true ;
-    }
-    console.log(`Hello,{user.name}welcome to your profile`);
-    return (
-      <div>
-        <h2>Hello,{user.name}welcome to your profile</h2>
-        <button onClick={() => subscribe()}>get MySubscription</button>
-      </div>
-    );
-  };
+	const connectedUser = localStorage.getItem("user");
+	const parsedUser = JSON.parse(connectedUser);
+	if (parsedUser) {
+		return `Hello ${parsedUser.name}, welcome to your profile`;
+	} else {
+		return "please Login again to access your account !";
+	}
+
+	return <div></div>;
 };
 
 export default UserProfilFront;

@@ -163,12 +163,15 @@ body {
   font-size: 10px;
 }
 .register-form button {
-  padding: 10px 15px;
-  border-radius: 70px;
+  color: #e8e8e8;
+  padding: 10px;
+  font-weight: 600;
   border: none;
-  color: var(--primeryColorLight);
-  font-weight: bold;
-  align-self: center;
+  cursor: pointer;
+  background: var(--introBgColor);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 1rem;
 }
 .register-form button:hover {
   color: #151b1a;
@@ -202,15 +205,26 @@ body {
   border-radius: 10px;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
 }
+.subscriber-card button {
+  color: #e8e8e8;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.569);
+  margin-top: 1rem;
+  background-color: red;
+}
 
 .subscriber-content {
   background-color: #e6e6e642;
+  display: flex;
+  flex-wrap: wrap ;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   padding: 30px;
-  display:grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px ,1fr));
-	grid-gap:1rem;
-  color: #000000;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
 }
 .content {
   color: #000000;
@@ -361,9 +375,12 @@ nav a {
   
   /* color: royalblue; */
 }
-nav a :hover {
-  transition: ease 50ms !important;
-  background: right / 100% 100% no-repeat linear-gradient(#c1f5ee, #c1f5ee);
+nav span:hover {
+  transition: ease 500ms !important;
+  /* background: right / 100% 100% no-repeat linear-gradient(#c1f5ee, #c1f5ee); */
+  border-bottom: 2px solid rgba(linear-gradient(#c1f5ee, #c1f5ee)) ;
+  border-bottom: 2px solid var(--introBgColor) ;
+
 
 }
 .nav-btn {
@@ -752,17 +769,19 @@ text-align: center;
 }
 
 .btn3 {
-  padding: 15px 30px;
-  border-radius: 70px;
-  color: #00d084;
-  font-weight: bold;
-  margin-top: 20px;
+  color: #e8e8e8;
+  padding: 10px;
+  font-weight: 600;
   border: none;
-  border: 1px solid rgb(203, 198, 198);  
+  cursor: pointer;
+  background: var(--introBgColor);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .btn3:hover {
-  transition: 0.33s ease-in-out;
-  background-color: transparent;
+  color: #151b1a;
+  background: var(--Button-hoverColor);
+  transition: step-start 33s;
 }
 
 
