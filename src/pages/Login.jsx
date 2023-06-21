@@ -4,6 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 import { MdVisibility } from "react-icons/md";
 import { MdOutlineVisibilityOff } from "react-icons/md";
 import { userProfile } from "../hooks/userHooks";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -50,13 +52,14 @@ const Login = () => {
 				},
 				body: JSON.stringify(details),
 			})
-				.then((value) => {
-					value.json().then((res) => {
-						localStorage.setItem("token", res.data);
-						userProfile().then((userProfile) => {
-							localStorage.setItem("user", JSON.stringify(userProfile));
-						});
+			.then((value) => {
+				value.json().then((res) => {
+					toast("login Successfully");
+					localStorage.setItem("token", res.data);
+					userProfile().then((userProfile) => {
+						localStorage.setItem("user", JSON.stringify(userProfile));
 					});
+				});
 				})
 				.catch((reason) => {
 					console.log("reason", reason.stringify());
@@ -93,6 +96,7 @@ const Login = () => {
 						</span>
 						<p>{passwordError && <span>{passwordError}</span>}</p>
 					</div>
+					{/* <Link> */}
 					<button className="btn3" type="submit">
 						Login
 					</button>
@@ -125,6 +129,7 @@ const Login = () => {
 						</Link>
 					</div>
 				</form>
+				<ToastContainer />
 			</div>
 			<div className="left-div">
 				<img className="introimage" src="./yoga1.png" alt="yoga1" />

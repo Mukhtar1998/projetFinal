@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Nav() {
 	const [showModal, setShowModal] = useState(false);
@@ -16,11 +18,16 @@ function Nav() {
 		const handleLogout = () => {
 			localStorage.clear();
 			setShowModal(!showModal);
+			toast("logged out successfully");
 		};
-		if (isValid === null) {
-			return setShowModal(!showModal);
+		if (isValid === null && undefined ) {
+			return setShowModal(true);
 		} else if (isValid !== null) {
-			return <button onClick={handleLogout}>Logout</button>;
+			return (
+				<button className="btn3" onClick={handleLogout}>
+					Logout
+				</button>
+			);
 		}
 	};
 
@@ -76,6 +83,7 @@ function Nav() {
 			<button className="nav-btn">
 				<FaBars onClick={showNavbar} />
 			</button>
+			<ToastContainer />
 		</header>
 	);
 }

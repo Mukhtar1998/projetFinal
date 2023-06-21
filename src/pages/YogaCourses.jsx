@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getCourses } from "../hooks/coursesHooks";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
-import { MySubscriptionModal } from "../components/calendar/SubscriptionModal";
+import { MySubscriptionModal } from "../components/subscritionModal/SubscriptionModal";
+
 
 const YogaCourses = () => {
 	const [courses, setCourses] = useState([]);
@@ -11,6 +12,7 @@ const YogaCourses = () => {
 	const showModal = (courseId) => (event) => {
 		setShow(true);
 		setSelectedcourse(courses.find((value) => value._id === courseId));
+		
 	};
 
 	const hideModal = () => {

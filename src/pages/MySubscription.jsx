@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getSubscriber } from "../hooks/subscriberHooks";
 import { deleteSubscriber } from "../hooks/subscriberHooks";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MySubscription = () => {
 	const [subscription, setSubscrition] = useState([]);
-	const [deleteSubscription, setDeleteSubscription] = useState([]);
+	const [deleteSubscrition, setDeleteSubscription] = useState([]);
 
 	const connectedUser = localStorage.getItem("user");
-	if (connectedUser === null) {
-		return "please Login again to accesse to your Subscription !";
-	} else {
+	if (connectedUser) {
 		useEffect(() => {
 			const fetchMyData = async () => {
 				const subscriberFromDb = await getSubscriber();
@@ -17,8 +17,11 @@ const MySubscription = () => {
 				console.log(`subscriberFromDb`, subscriberFromDb);
 			};
 			fetchMyData();
-		}, []);
+		}, [null]);
+	} else {
+		return "login again to get access to your subscriptions !";
 	}
+
 	const deleteByValue = (id, handleClose) => {
 		deleteSubscriber(id);
 		const index = subscription.findIndex((value) => value._id === id);
@@ -26,7 +29,8 @@ const MySubscription = () => {
 		subscription.splice(index, 1);
 		console.log(subscription);
 		setDeleteSubscription(subscription);
-		handleClose = () => null;
+		toast("Subscription deleted !")
+		// handleClose = () => null;
 		// return (
 		// 	<div>
 		// 		<button onClick={() => deleteByValue(id)}>yes</button>
@@ -52,6 +56,7 @@ const MySubscription = () => {
 			return "Dimenche";
 		}
 	};
+
 	return (
 		<>
 			<div>

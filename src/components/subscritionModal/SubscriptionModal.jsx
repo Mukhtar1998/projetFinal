@@ -6,6 +6,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/fr";
 import { createSubscriber } from "../../hooks/subscriberHooks";
 import { LocalizationProvider } from "@mui/x-date-pickers";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const MySubscriptionModal = ({ show, handleClose, course }) => {
 	const [newSubscriber, setNewSubscriber] = useState([]);
@@ -35,6 +37,7 @@ export const MySubscriptionModal = ({ show, handleClose, course }) => {
 			console.log("createSubscriberFront", createSubscriberFront);
 		};
 		fetchSubscriber();
+		toast("Subscribed successfully !");
 	};
 
 	return (
@@ -51,9 +54,9 @@ export const MySubscriptionModal = ({ show, handleClose, course }) => {
 							setDate(dateString);
 							// console.log("detaString", dateString);
 						}}
-						shouldDisableDate={disableWeekends}>
-            </DatePicker>
+						shouldDisableDate={disableWeekends}></DatePicker>
 				</LocalizationProvider>
+				<ToastContainer />
 				<button className="btn" onClick={() => subscribe()}>
 					Subscribe
 				</button>
